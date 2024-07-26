@@ -29,9 +29,11 @@ contract ContractManager {
         return whitelist[_address];
     }
 
+    /** ----- */
+
     /** Add contract function add a new value into the contracts mapping
-     @ _contract: address
-     @ _description: string
+     @param _contract: address
+     @param _description: string
      */
     function addContract(address _contract, string memory _description) public {
         require(isWhitelisted(msg.sender), "Sender cant add contracts");
@@ -45,6 +47,7 @@ contract ContractManager {
         contracts[_contract] = _description;
     }
 
+    /** Remove contract set the value in '' for the contract key */
     function removeContract(address _contract) public {
         require(isWhitelisted(msg.sender), "Sender cant remove contracts");
         delete contracts[_contract];
